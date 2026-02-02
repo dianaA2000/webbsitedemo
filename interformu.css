@@ -1,0 +1,182 @@
+/* GLOBALA VARIABLER 
+   Vi definierar universitetets färgtema här för att enkelt kunna 
+   justera färger på ett och samma ställe genom hela dokumentet.
+*/
+:root {
+    --uni-blue: #003366;
+    --uni-gold: #c5a059;
+    --bg-light: #f4f7f6;
+    --white: #ffffff;
+    --error-red: #d32f2f;
+}
+
+/* GRUNDLÄGGANDE LAYOUT 
+   Använder Flexbox för att centrera formuläret både vertikalt 
+   och horisontellt på skärmen oavsett enhetens storlek.
+*/
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Fyller hela webbläsarfönstret */
+    margin: 0;
+}
+
+/* FORMULÄRCONTAINER 
+   Den vita boxen som innehåller alla fält. Vi lägger till en skugga 
+   och en blå kant högst upp för en professionell framtoning.
+*/
+.container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    /* Mjukt rundade hörn */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Ger ett lyft från bakgrunden */
+    width: 100%;
+    max-width: 450px;
+    /* Begränsar bredden på större skärmar */
+    border-top: 5px solid var(--uni-blue);
+}
+
+/* RUBRIK OCH VÄLKOMSTHÄLSNING */
+.header-area {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: var(--uni-blue);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+#welcomeNote {
+    color: var(--uni-gold);
+    font-weight: bold;
+    font-size: 0.9em;
+    min-height: 20px;
+    /* Reserverar utrymme så att layouten inte hoppar vid textändring */
+}
+
+/* INMATNINGSFÄLT OCH GRUPPERING 
+   Stilar för etiketter (labels) och själva input-rutorna.
+*/
+.form-group {
+    margin-bottom: 15px;
+    /* Skapar luft mellan de olika fälten */
+}
+
+/* Används när vi vill ha t.ex. förnamn och efternamn på samma rad */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    /* Gör texten tydligare för användaren */
+    font-size: 0.85em;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Säkerställer att padding inte gör rutan bredare än 100% */
+    font-size: 14px;
+}
+
+/* Visuell feedback när användaren klickar i en ruta */
+input:focus {
+    border-color: var(--uni-blue);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
+}
+
+/* CHECKBOX FÖR VILLKOR 
+   Hanterar placeringen av kryssrutan så att den ligger snyggt 
+   bredvid texten istället för ovanför.
+*/
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Tar bort block-egenskapen för just denna etikett */
+.checkbox-group label {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Gör att kryssrutan inte sträcker sig över hela bredden */
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* KNAPPAR OCH INTERAKTION 
+   Stilar för den stora registreringsknappen med hover-effekt.
+*/
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--uni-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Gör texten lite mer formell */
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s ease-in-out;
+    /* Mjuk övergång vid hover */
+}
+
+button:hover {
+    background-color: #002244;
+    /* Mörkare nyans vid muspekare över */
+}
+
+/* STATUSMEDDELANDEN 
+   Hanterar utseendet på feedback-rutan (t.ex. "Skickat" eller "Fel").
+*/
+#statusMessage {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    display: none;
+    /* Dold som standard, visas via JavaScript */
+    text-align: center;
+}
+
+/* Stil vid felmeddelande */
+.err {
+    background-color: #ffebee;
+    color: var(--error-red);
+    border: 1px solid var(--error-red);
+}
+
+/* Stil vid framgångsrikt skickande */
+.ok {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}

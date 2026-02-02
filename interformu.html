@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitetet - Skapa Studentkonto</title>
+    <!-- Kopplar samman HTML-filen med din externa CSS-fil för design -->
+    <link rel="stylesheet" href="interformu.css">
+</head>
+
+<body>
+
+    <!-- Huvudbehållare för allt innehåll på sidan -->
+    <div class="container">
+
+        <!-- Header-sektion med huvudrubrik och välkomsttext -->
+        <div class="header-area">
+            <h1>Studentregistrering</h1>
+            <p id="welcomeNote">Välkommen till universitetet!</p>
+        </div>
+
+        <!-- Formulär för att samla in studentinformation. Har ett ID för att JS ska kunna nå det -->
+        <form id="studentForm">
+
+            <!-- Gruppering för förnamn och efternamn i en rad -->
+            <div class="row">
+                <div class="form-group">
+                    <label for="fname">Förnamn</label>
+                    <input type="text" id="fname">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Efternamn</label>
+                    <input type="text" id="lname">
+                </div>
+            </div>
+
+            <!-- Inmatningsfält för ålder med förklarande label -->
+            <div class="form-group">
+                <label for="age">Ålder (Studenter 18–30 år)</label>
+                <input type="number" id="age">
+            </div>
+
+            <!-- E-postfält med placeholder-text som visar exempelformatet -->
+            <div class="form-group">
+                <label for="email">E-post</label>
+                <input type="email" id="email" placeholder="namn@student.se">
+            </div>
+
+            <!-- Rullista för att välja mellan olika utbildningsprogram -->
+            <div class="form-group">
+                <label for="program">Välj program</label>
+                <select id="program">
+                    <option value="">-- Välj utbildning --</option>
+                    <option value="IT">IT-system</option>
+                    <option value="Ekonomi">Ekonomi</option>
+                    <option value="Teknik">Teknik</option>
+                    <option value="Design">Design</option>
+                </select>
+            </div>
+
+            <!-- Lösenordsfält där tecknen döljs när man skriver -->
+            <div class="form-group">
+                <label for="pwd">Lösenord</label>
+                <input type="password" id="pwd">
+            </div>
+
+            <!-- Fält för att bekräfta lösenordet (viktigt för validering i JS) -->
+            <div class="form-group">
+                <label for="pwd2">Upprepa lösenord</label>
+                <input type="password" id="pwd2">
+            </div>
+
+            <!-- ÄNDRING HÄR: Checkbox-gruppen är nu strukturerad för att ligga på en rad via CSS -->
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="terms">
+                <label for="terms">Jag accepterar universitetets villkor</label>
+            </div>
+
+            <!-- Knapp som skickar iväg (submit) formuläret -->
+            <button type="submit">Skapa konto</button>
+        </form>
+
+        <!-- Behållare där felmeddelanden eller bekräftelser visas via JavaScript -->
+        <div id="statusMessage"></div>
+    </div>
+
+    <!-- Kopplar samman HTML-filen med din JavaScript-fil för logik och validering -->
+    <script src="interformu.js"></script>
+</body>
+
+</html>
